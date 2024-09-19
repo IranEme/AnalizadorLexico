@@ -1,0 +1,14 @@
+// Este es un comentario de una línea
+/* Este es un comentario
+   de varias líneas */
+   
+int x = 8;
+float y = 21.5;
+if (x == 8) {
+    y = x + 5;
+} else {
+    y = x - 2;
+}
+
+// Función de prueba
+return y;
