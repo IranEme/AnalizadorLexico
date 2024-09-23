@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
 
@@ -26,6 +25,10 @@ public class Lexer
 {
     private readonly string _codigoFuente;
     private int _indiceActual;
+
+    private readonly string[] palabrasClave = { "int", "float", "if", "else", "while", "return", "true", "false", "null", 
+                               "for", "switch", "case", "break", "continue", "void", "double", "char", 
+                               "do", "sizeof" };
 
     // Constructor 
     public Lexer(string rutaArchivo)
@@ -97,11 +100,7 @@ public class Lexer
             _indiceActual++;
         }
 
-        // Verificación de palabras clave
-         string[] palabrasClave = { "int", "float", "if", "else", "while", "return", "true", "false", "null", 
-                               "for", "switch", "case", "break", "continue", "void", "double", "char", 
-                               "do", "sizeof" };
-        if (Array.Exists(palabrasClave, clave => clave == identificador))
+        if (EsPalabraReservada(identificador))
         {
             return new Token("PalabraClave", identificador);
         }
@@ -233,6 +232,12 @@ public class Lexer
     {
         return _indiceActual + 2 < _codigoFuente.Length ? _codigoFuente[_indiceActual + 2] : '\0';
     }
+
+    // Verifica si un identificador es una palabra reservada
+    private bool EsPalabraReservada(string identificador)
+    {
+        return Array.Exists(palabrasClave, clave => clave == identificador);
+    }
 }
 
 // Clase principal del programa
@@ -246,11 +251,21 @@ public class Programa
             Lexer lexer = new Lexer("test.txt");
             List<Token> tokens = lexer.Analizar();
 
-            // Mostrar los tokens generados
+            // Mostrar encabezado de la tabla con bordes
+            string tablaEncabezado = "+----------------------+----------------------+----------------------+\n" +
+                                     "| Tipo de Dato         | Dato                 | Es Palabra Reservada  |\n" +
+                                     "+----------------------+----------------------+----------------------+";
+            Console.WriteLine(tablaEncabezado);
+
+            // Mostrar los tokens generados en formato tabular con bordes
             foreach (Token token in tokens)
             {
-                Console.WriteLine(token);
+                bool esPalabraReservada = token.Categoria == "PalabraClave";
+                Console.WriteLine($"| {token.Categoria,-20} | {token.Contenido,-20} | {(esPalabraReservada ? "Sí" : "No"),-20} |");
             }
+
+            // Pie de la tabla
+            Console.WriteLine("+----------------------+----------------------+----------------------+");
         }
         catch (Exception ex)
         {

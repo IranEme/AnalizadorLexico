@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/iran-mercado/Escritorio/MiProyectoCSharp/MiProyectoCSharp.csproj": {}
+    "/home/iran-mercado/Escritorio/AnalizadorLexico/AnalizadorLexico/MiProyectoCSharp.csproj": {}
   },
   "projects": {
-    "/home/iran-mercado/Escritorio/MiProyectoCSharp/MiProyectoCSharp.csproj": {
+    "/home/iran-mercado/Escritorio/AnalizadorLexico/AnalizadorLexico/MiProyectoCSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/iran-mercado/Escritorio/MiProyectoCSharp/MiProyectoCSharp.csproj",
+        "projectUniqueName": "/home/iran-mercado/Escritorio/AnalizadorLexico/AnalizadorLexico/MiProyectoCSharp.csproj",
         "projectName": "MiProyectoCSharp",
-        "projectPath": "/home/iran-mercado/Escritorio/MiProyectoCSharp/MiProyectoCSharp.csproj",
+        "projectPath": "/home/iran-mercado/Escritorio/AnalizadorLexico/AnalizadorLexico/MiProyectoCSharp.csproj",
         "packagesPath": "/home/iran-mercado/.nuget/packages/",
-        "outputPath": "/home/iran-mercado/Escritorio/MiProyectoCSharp/obj/",
+        "outputPath": "/home/iran-mercado/Escritorio/AnalizadorLexico/AnalizadorLexico/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/iran-mercado/.nuget/NuGet/NuGet.Config"
